@@ -25,6 +25,33 @@ fs.readFile('sample.png','utf-8',function(err,data){
         console.log(buf);
     }
 })
+try {
+    var data=fs.readFileSync('sample.txt','utf-8');
+    console.log(data);
+} catch (error) {
+    console.log(error);
+}
+var data2='hello, node.js!';
+fs.writeFile('output.txt',data2,function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('ok');
+    }
+})
+fs.stat('sample.txt',function(err,stat){
+    if(err){
+        console.log(err);
+    }else{
+        console.log('isFile:'+stat.isFile());
+        console.log('isDirectory:'+stat.isDirectory());
+        if(stat.isFile()){
+            console.log('size:'+stat.size);
+            console.log('birth time:'+stat.birthtime);
+            console.log('modified time:'+stat.mtime);
+        }
+    }
+})
 // con(s); // Hello, Michael!
 // var arr=['sd','fd','dfad','fdsf','ad'];
 // for (const i of arr) {
