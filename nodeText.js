@@ -7,6 +7,7 @@ function con(name){
 function ale(name){
     alert("you are"+name);
 }
+// 函数裸露出去
 module.exports={
     con:con,
     ale:ale,
